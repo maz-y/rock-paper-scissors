@@ -16,7 +16,6 @@
     function getComputerChoice() {
       let randomNumber = Math.floor(Math.random() * 3);
       computerChoice = gameChoices[randomNumber];
-      console.log(computerChoice);
       return(computerChoice);
     }
     /* Get the players choice for the play*/
@@ -25,8 +24,6 @@
 
       while (i = 1) {
         playerChoice = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
-
-        console.log(playerChoice);
         if (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
           alert ("You must choose either Rock, Paper or Scissors");
         }
@@ -41,8 +38,6 @@
     }
 
     function findWinner() {
-      console.log(playerChoice)
-      console.log(computerChoice)
 
       if (playerChoice === computerChoice){
         console.log (`you both chose `+ computerChoice +`! draw!`)
