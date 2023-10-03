@@ -45,7 +45,7 @@ function findWinner(playerChoice) {
     (playerChoice === "paper" && computerChoice === "rock")||
     (playerChoice === "scissors" && computerChoice === "paper")){
     alert(playerChoice + ` beats `+ computerChoice +`! player wins!`)
-    let resultLine = (`you both chose `+ computerChoice +`! draw!`)
+    let resultLine = (playerChoice + ` beats `+ computerChoice +`! player wins!`)
     let result = document.createElement('p')
     result.textContent = resultLine
     resultsList.appendChild(result)
@@ -55,7 +55,7 @@ function findWinner(playerChoice) {
   (computerChoice === "paper" && playerChoice === "rock")||
   (computerChoice === "scissors" && playerChoice === "paper")){
     alert(computerChoice + ` beats `+ playerChoice +`! computer wins!`)
-    let resultLine = (`you both chose `+ computerChoice +`! draw!`)
+    let resultLine = (computerChoice + ` beats `+ playerChoice +`! computer wins!`)
     let result = document.createElement('p')
     result.textContent = resultLine
     resultsList.appendChild(result)
