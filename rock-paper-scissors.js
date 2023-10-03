@@ -11,55 +11,66 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-  let i = 1
-
-  while (i = 1) {
-    playerChoice = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
-    if (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
-      alert ("You must choose either Rock, Paper or Scissors");
-    }
-    
-    else {
-      i = 2
-      break;
-      }
-  }
-
-  return(playerChoice);
+  rockdiv.addEventListener("click", function(){
+    console.log("You chose rock!")
+    findWinner("rock")
+  })
+  
+  scissorsdiv.addEventListener("click", function(){
+    console.log("You chose scissors!")
+    findWinner("scissors")
+  })
+  
+  paperdiv.addEventListener("click", function(){
+    console.log("You chose paper!")
+    findWinner("paper")
+  })
 }
 
-function findWinner() {
+function findWinner(playerChoice) {
+
+  let randomNumber = Math.floor(Math.random() * 3);
+  computerChoice = gameChoices[randomNumber];
 
   if (playerChoice === computerChoice){
-  console.log (`you both chose `+ computerChoice +`! draw!`)
+    alert (`you both chose `+ computerChoice +`! draw!`)
+    let resultLine = (`you both chose `+ computerChoice +`! draw!`)
+    let result = document.createElement('p')
+    result.textContent = resultLine
+    resultsList.appendChild(result)
+
   }
 
   else if ((playerChoice === "rock" && computerChoice === "scissors")||
     (playerChoice === "paper" && computerChoice === "rock")||
     (playerChoice === "scissors" && computerChoice === "paper")){
-    console.log(playerChoice + ` beats `+ computerChoice +`! player wins!`)
+    alert(playerChoice + ` beats `+ computerChoice +`! player wins!`)
+    let resultLine = (`you both chose `+ computerChoice +`! draw!`)
+    let result = document.createElement('p')
+    result.textContent = resultLine
+    resultsList.appendChild(result)
   }
 
-  else {
-    console.log(computerChoice + ` beats `+ playerChoice +`! computer wins!`)
+  else if ((computerChoice === "rock" && playerChoice === "scissors")||
+  (computerChoice === "paper" && playerChoice === "rock")||
+  (computerChoice === "scissors" && playerChoice === "paper")){
+    alert(computerChoice + ` beats `+ playerChoice +`! computer wins!`)
+    let resultLine = (`you both chose `+ computerChoice +`! draw!`)
+    let result = document.createElement('p')
+    result.textContent = resultLine
+    resultsList.appendChild(result)
   }
 }
 
 function game(){
-  getComputerChoice()
   getPlayerChoice()
-  findWinner()
 }
 
 const rockdiv = document.querySelector("#rock")
 const scissorsdiv = document.querySelector("#scissors")
 const paperdiv = document.querySelector("#paper")
+const resultsList = document.querySelector(".results")
 
 
-rockdiv.addEventListener("click", function(){
-  console.log("You chose rock!")
-})
-
-
-///game()
+game()
 
